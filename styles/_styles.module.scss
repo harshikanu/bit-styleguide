@@ -1,0 +1,266 @@
+@use "sass:math";
+@import "../node_modules/@my-scope/colors/colors.module.scss";
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap");
+
+// -------------------------------FUNCTIONS-------------------------------------------
+
+@function toRem($value) {
+  $remValue: math.div($value, 16) + rem;
+  @return $remValue;
+}
+
+// -------------------------------REUSABLE MIXINS-------------------------------------------
+
+@mixin font-family {
+  font-family: "Nunito Sans", sans-serif;
+  font-stretch: normal;
+  font-style: normal;
+  color: $type-body;
+}
+
+// TEXT SIZE
+@mixin text-size-56 {
+  font-size: toRem(56);
+}
+
+@mixin text-size-48 {
+  font-size: toRem(48);
+}
+
+@mixin text-size-40 {
+  font-size: toRem(40);
+}
+
+@mixin text-size-32 {
+  font-size: toRem(32);
+}
+
+@mixin text-size-24 {
+  font-size: toRem(24);
+}
+
+@mixin text-size-20 {
+  font-size: toRem(20);
+}
+
+@mixin text-size-18 {
+  font-size: toRem(18);
+}
+
+@mixin text-size-16 {
+  font-size: toRem(16);
+}
+
+@mixin text-size-14 {
+  font-size: toRem(14);
+}
+
+@mixin text-size-12 {
+  font-size: toRem(12);
+}
+
+// FONT WEIGHT
+@mixin normal-weight {
+  font-weight: normal;
+}
+
+@mixin semibold-weight {
+  font-weight: 600;
+}
+
+@mixin bold-weight {
+  font-weight: bold;
+}
+
+// LINE HEIGHT
+@mixin button-line-height {
+  line-height: 100%;
+}
+
+@mixin heading-line-height {
+  line-height: 130%;
+}
+
+@mixin body-line-height {
+  line-height: 140%;
+}
+
+// -------------------------------FONTS-------------------------------------------
+
+.font-face {
+  @include font-family;
+
+  &-normal {
+    @extend .font-face;
+    @include normal-weight;
+  }
+
+  &-semibold {
+    @extend .font-face;
+    @include semibold-weight;
+  }
+
+  &-bold {
+    @extend .font-face;
+    @include bold-weight;
+  }
+}
+
+// -------------------------------HEADINGS-------------------------------------------
+
+.heading {
+  @include font-family;
+  @include bold-weight;
+  @include heading-line-height;
+}
+
+h1 {
+  @extend .heading;
+  @include text-size-56;
+  letter-spacing: toRem(0.11);
+}
+
+h2 {
+  @extend .heading;
+  @include text-size-48;
+  letter-spacing: toRem(0.1);
+}
+
+h3 {
+  @extend .heading;
+  @include text-size-40;
+  letter-spacing: toRem(0.08);
+}
+
+h4 {
+  @extend .heading;
+  @include text-size-32;
+  letter-spacing: toRem(0.06);
+}
+
+h5 {
+  @extend .heading;
+  @include text-size-24;
+  letter-spacing: toRem(0.05);
+}
+
+h6 {
+  @extend .heading;
+  @include text-size-20;
+  letter-spacing: toRem(0.04);
+}
+
+// -------------------------------BODY-------------------------------------------
+
+p {
+  @include font-family;
+}
+
+.p.xxsmall-b,
+.xxsmall-b {
+  @extend p;
+  @include text-size-12;
+  @include bold-weight;
+  @include body-line-height;
+  letter-spacing: toRem(0.02);
+}
+
+p.xsmall,
+.xsmall {
+  @extend p;
+  @include text-size-14;
+  @include normal-weight;
+  @include body-line-height;
+  letter-spacing: toRem(0.03);
+}
+
+p.xsmall-sb {
+  @extend .xsmall;
+  @include semibold-weight;
+  @include body-line-height;
+}
+
+p.xsmall-b {
+  @extend .xsmall;
+  @include bold-weight;
+  @include body-line-height;
+}
+
+p.small,
+.small {
+  @extend p;
+  @include body-line-height;
+  @include text-size-16;
+  @include normal-weight;
+  letter-spacing: toRem(0.03);
+}
+
+p.small-sb {
+  @extend .small;
+  @include semibold-weight;
+  letter-spacing: toRem(0.04);
+}
+
+p.small-b {
+  @extend .small;
+  @include bold-weight;
+  letter-spacing: toRem(0.04);
+}
+
+p.medium,
+.medium {
+  @extend p;
+  @include body-line-height;
+  @include normal-weight;
+  @include text-size-18;
+  letter-spacing: toRem(0.04);
+}
+
+p.medium-sb {
+  @extend .medium;
+  @include semibold-weight;
+}
+
+p.medium-b {
+  @extend .medium;
+  @include bold-weight;
+}
+
+p.large,
+.large {
+  @extend p;
+  @include body-line-height;
+  @include normal-weight;
+  @include text-size-20;
+  letter-spacing: toRem(0.04);
+}
+
+p.large-sb {
+  @extend .large;
+  @include semibold-weight;
+}
+
+p.large-b {
+  @extend .large;
+  @include bold-weight;
+}
+
+p.xlarge,
+.xlarge {
+  @extend p;
+  @include body-line-height;
+  @include normal-weight;
+  @include text-size-24;
+  letter-spacing: toRem(0.05);
+}
+
+p.xlarge-sb {
+  @extend .xlarge;
+  @include semibold-weight;
+}
+
+p.xlarge-b {
+  @extend .xlarge;
+  @include bold-weight;
+}
